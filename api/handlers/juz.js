@@ -1,4 +1,5 @@
 const juzData = require('../lib/juz.js');
+const juzAllData = require('../lib/all_juz.js');
 
 class JuzHandler {
   static getJuz(req, res) {
@@ -14,6 +15,20 @@ class JuzHandler {
       });
     }
 
+    return res.status(200).send({
+      code: 200,
+      status: 'OK.',
+      message: 'Success fetching juz.',
+      data
+    });
+  }
+
+  static getallJuz(req,res){
+    const data= [];
+    for(var i=1; i<=30; i++){
+      const datajuz = juzAllData(i);
+      data.push(datajuz);
+    }
     return res.status(200).send({
       code: 200,
       status: 'OK.',

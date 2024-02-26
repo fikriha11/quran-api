@@ -1,7 +1,7 @@
 const { data: juz } = require('../../data/juz.json');
 const { data: quran } = require('../../data/quran.json');
 
-const juzData = (_inputJuz) => {
+const juzAllData = (_inputJuz) => {
   const inputJuz = juz[_inputJuz - 1];
 
   if (!inputJuz) return null;
@@ -41,11 +41,8 @@ const juzData = (_inputJuz) => {
     'juzStartInfo': `${startSurahName} - ${inputJuz.start.verse}`,
     'juzEndInfo': `${endSurahName} - ${inputJuz.end.verse}`,
     'totalVerses': juzAyah.length,
-    'verses': juzAyah
   };
   return data;
 };
 
-
-
-module.exports = juzData;
+module.exports = juzAllData;
